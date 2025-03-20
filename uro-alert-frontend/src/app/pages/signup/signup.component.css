@@ -1,0 +1,101 @@
+/* Container for the signup page */
+.signup-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Left section: dark background with logo */
+.left-section {
+  flex: 1;
+  background-color: #0c0f17; /* or your preferred dark color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-logo {
+  max-width: 200px;
+  width: 60%;
+}
+
+/* Right section: form area */
+.right-section {
+  flex: 1;
+  background-color: #f9f9f9; /* or white */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Error and success messages */
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.success-message {
+  color: green;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Terms text */
+.terms-text {
+  font-size: 12px;
+  color: #666;
+  margin: 20px 0;
+}
+
+/* Signup button */
+.signup-btn {
+  background-color: #0c0f17;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Login link at bottom */
+.login-link {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}

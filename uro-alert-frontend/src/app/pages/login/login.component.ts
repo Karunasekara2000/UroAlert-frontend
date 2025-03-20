@@ -31,7 +31,7 @@ export class LoginComponent {
 
         // Navigate to dashboard or home
         alert('Login Successful!');
-        // this.router.navigate(['/dashboard']); // You can create a dashboard component later
+        this.router.navigate(['/dashboard']); // You can create a dashboard component later
       },
       error: (error) => {
         if (error.status === 403) {
