@@ -1,0 +1,16 @@
+
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1E1E1E;
+  padding: 16px; /* Adds a bit of breathing room on small devices */
+  box-sizing: border-box;
+}
+
+.landing-logo {
+  max-width: 400px;
+  width: 80%;
+  min-width: 150px;  /* Don't let the logo shrink too much */
+}
