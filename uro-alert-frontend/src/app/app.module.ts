@@ -8,6 +8,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import {HttpClientModule} from "@angular/common/http";
     LandingComponent,
     LoginComponent,
     SignupComponent,
+    MainLayoutComponent,
+    SidebarComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

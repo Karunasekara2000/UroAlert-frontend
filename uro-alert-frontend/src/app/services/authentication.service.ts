@@ -19,4 +19,14 @@ export class AuthenticationService {
     return this.http.post<any>(this.baseUrl+ 'authenticate', body);
   }
 
+  register(firstName: string, lastName: string, email: string, password: string, role: string): Observable<any> {
+    const body = {
+      firstName,
+      lastName,
+      email,
+      password,
+      role
+    };
+    return this.http.post<any>(this.baseUrl + 'register', body);
+  }
 }

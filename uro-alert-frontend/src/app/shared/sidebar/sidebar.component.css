@@ -1,0 +1,55 @@
+.sidebar {
+  width: 240px;
+  background-color: #0c0f17;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: space-between; /* ensures logout is at the bottom */
+  height: 100%;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.logo {
+  width: 200px;
+  height: 140px;
+  margin-right: 8px;
+}
+
+/* If you had a brand name and removed it, you can delete the .brand-name styles */
+.brand-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sidebar-nav {
+  margin-top: 20px; /* or any value you prefer */
+}
+
+/* The main nav */
+.sidebar-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 16px;
+}
+
+.sidebar-nav li a:hover {
+  background-color: #1c1f27;
+}
+
+/* Logout at the bottom */
+.logout-section {
+  padding: 16px;
+  border-top: 1px solid #2a2f3a;
+}

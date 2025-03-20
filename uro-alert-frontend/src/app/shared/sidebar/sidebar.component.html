@@ -1,0 +1,20 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <img src="assets/images/logo.png" alt="UroAlert Logo" class="logo" />
+    <!-- Remove or comment out the brand name text -->
+    <!-- <span class="brand-name">UroAlert</span> -->
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><a routerLink="/patient-management">Patient Management</a></li>
+      <li><a routerLink="/settings">Settings</a></li>
+    </ul>
+  </nav>
+  <div class="logout-section">
+    <a (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Logout</span>
+    </a>
+  </div>
+</aside>
