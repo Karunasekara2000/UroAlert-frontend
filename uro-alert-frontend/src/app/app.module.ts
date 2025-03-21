@@ -11,6 +11,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PatientManagementComponent } from './pages/patient-management/patient-management.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     MainLayoutComponent,
     SidebarComponent,
     DashboardComponent,
+    PatientManagementComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
