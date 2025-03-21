@@ -8,6 +8,8 @@ import {Router} from "@angular/router";
 })
 export class SidebarComponent {
 
+  public isCollapsed= true;
+
   constructor(private router: Router) {}
 
   logout() {

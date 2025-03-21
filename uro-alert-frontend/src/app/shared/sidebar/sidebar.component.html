@@ -1,20 +1,34 @@
-<aside class="sidebar">
-  <div class="sidebar-header">
-    <img src="assets/images/logo.png" alt="UroAlert Logo" class="logo" />
-    <!-- Remove or comment out the brand name text -->
-    <!-- <span class="brand-name">UroAlert</span> -->
+<aside class="sidebar d-flex flex-column p-3">
+  <!-- Logo -->
+  <div class="mb-4">
+    <img src="assets/images/logo.png" alt="Logo" class="logo"/>
   </div>
-  <nav class="sidebar-nav">
-    <ul>
-      <li><a routerLink="/dashboard">Dashboard</a></li>
-      <li><a routerLink="/patient-management">Patient Management</a></li>
-      <li><a routerLink="/settings">Settings</a></li>
-    </ul>
-  </nav>
-  <div class="logout-section">
-    <a (click)="logout()">
-      <i class="fas fa-sign-out-alt"></i>
-      <span>Logout</span>
+
+  <hr class="sidebar-divider" />
+
+  <!-- Navigation Links -->
+  <nav class="nav flex-column">
+    <a class="nav-link text-white" routerLink="/dashboard">
+      <img src="assets/icons/dashboard.png" alt="Dashboard Icon" class="nav-icon" />
+      Dashboard
     </a>
+    <a class="nav-link text-white" routerLink="/patient-management">
+      <img src="assets/icons/patient.png" alt="User Icon" class="nav-icon" />
+      Patient Management
+    </a>
+    <a class="nav-link text-white" routerLink="/settings">
+      <img src="assets/icons/user.png" alt="Settings Icon" class="nav-icon" />
+      User
+    </a>
+    <!--<a class="nav-link text-white" routerLink="/settings">Settings</a> -->
+  </nav>
+
+  <hr class="sidebar-divider" />
+
+  <!-- Logout pinned to bottom if there's enough vertical space -->
+  <div class="logout-container mt-auto">
+    <button class="btn btn-link text-white" (click)="logout()">
+      Logout
+    </button>
   </div>
 </aside>
