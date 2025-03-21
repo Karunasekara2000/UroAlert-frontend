@@ -1,0 +1,422 @@
+<div class="container my-4">
+  <h2>Patient Management</h2>
+
+  <form (ngSubmit)="onSubmit()" #patientForm="ngForm">
+    <!-- URINALYSIS SECTION -->
+    <div class="card mb-4">
+      <div class="card-header">Urinalysis</div>
+      <div class="card-body">
+        <div class="row">
+          <!-- Age -->
+          <div class="col-12 col-md-4 mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input
+              type="number"
+              id="age"
+              class="form-control"
+              [(ngModel)]="urinalysis.Age"
+              name="Age"
+            />
+          </div>
+
+          <!-- Color Dropdown -->
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Color</label>
+            <select
+              class="form-select"
+              [(ngModel)]="urinalysis.Color"
+              name="Color"
+            >
+              <option [ngValue]="null">Select Color</option>
+              <option *ngFor="let key of objectKeys(colorMap)" [ngValue]="colorMap[key]">
+                {{ key }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Transparency Dropdown -->
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Transparency</label>
+            <select
+              class="form-select"
+              [(ngModel)]="urinalysis.Transparency"
+              name="Transparency"
+            >
+              <option [ngValue]="null">Select Transparency</option>
+              <option *ngFor="let key of objectKeys(transparencyMap)" [ngValue]="transparencyMap[key]">
+                {{ key }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Protein Dropdown -->
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Protein</label>
+            <select
+              class="form-select"
+              [(ngModel)]="urinalysis.Protein"
+              name="Protein"
+            >
+              <option [ngValue]="null">Select Protein</option>
+              <option *ngFor="let key of objectKeys(proteinGlucoseMap)" [ngValue]="proteinGlucoseMap[key]">
+                {{ key }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Glucose Dropdown -->
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Glucose</label>
+            <select
+              class="form-select"
+              [(ngModel)]="urinalysis.Glucose"
+              name="Glucose"
+            >
+              <option [ngValue]="null">Select Glucose</option>
+              <option *ngFor="let key of objectKeys(proteinGlucoseMap)" [ngValue]="proteinGlucoseMap[key]">
+                {{ key }}
+              </option>
+            </select>
+          </div>
+
+          <!-- pH -->
+          <div class="col-12 col-md-4 mb-3">
+            <label for="ph" class="form-label">pH</label>
+            <input
+              type="number"
+              id="ph"
+              class="form-control"
+              [(ngModel)]="urinalysis.pH"
+              name="pH"
+            />
+          </div>
+
+          <!-- Specific Gravity -->
+          <div class="col-12 col-md-4 mb-3">
+            <label for="specificGravity" class="form-label">Specific Gravity</label>
+            <input
+              type="number"
+              step="0.001"
+              id="specificGravity"
+              class="form-control"
+              [(ngModel)]="urinalysis['Specific Gravity']"
+              name="SpecificGravity"
+            />
+          </div>
+
+          <!-- WBC Count -->
+          <div class="col-12 col-md-4 mb-3">
+            <label for="wbcCount" class="form-label">WBC Count</label>
+            <input
+              type="number"
+              id="wbcCount"
+              class="form-control"
+              [(ngModel)]="urinalysis.WBC"
+              name="WBC"
+            />
+          </div>
+
+          <!-- RBC Count -->
+          <div class="col-12 col-md-4 mb-3">
+            <label for="rbcCount" class="form-label">RBC Count</label>
+            <input
+              type="number"
+              id="rbcCount"
+              class="form-control"
+              [(ngModel)]="urinalysis.RBC"
+              name="RBC"
+            />
+          </div>
+
+          <!-- Epithelial Cells Dropdown -->
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Epithelial Cells</label>
+            <select
+              class="form-select"
+              [(ngModel)]="urinalysis['Epithelial Cells']"
+              name="EpithelialCells"
+            >
+              <option [ngValue]="null">Select Epithelial Cells</option>
+              <option *ngFor="let key of objectKeys(absenceReference)" [ngValue]="absenceReference[key]">
+                {{ key }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Mucous Threads Dropdown -->
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Mucous Threads</label>
+            <select
+              class="form-select"
+              [(ngModel)]="urinalysis['Mucous Threads']"
+              name="MucousThreads"
+            >
+              <option [ngValue]="null">Select Mucous Threads</option>
+              <option *ngFor="let key of objectKeys(absenceReference)" [ngValue]="absenceReference[key]">
+                {{ key }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Amorphous Urates Dropdown -->
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Amorphous Urates</label>
+            <select
+              class="form-select"
+              [(ngModel)]="urinalysis['Amorphous Urates']"
+              name="AmorphousUrates"
+            >
+              <option [ngValue]="null">Select Amorphous Urates</option>
+              <option *ngFor="let key of objectKeys(absenceReference)" [ngValue]="absenceReference[key]">
+                {{ key }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Bacteria Dropdown -->
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Bacteria</label>
+            <select
+              class="form-select"
+              [(ngModel)]="urinalysis.Bacteria"
+              name="Bacteria"
+            >
+              <option [ngValue]="null">Select Bacteria</option>
+              <option *ngFor="let key of objectKeys(absenceReference)" [ngValue]="absenceReference[key]">
+                {{ key }}
+              </option>
+            </select>
+          </div>
+
+          <!-- FEMALE Checkbox -->
+          <div class="col-12 col-md-4 mb-3">
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="female"
+                [(ngModel)]="urinalysis.FEMALE"
+                name="FEMALE"
+                (change)="urinalysis.FEMALE = urinalysis.FEMALE ? 1 : 0"
+              />
+              <label class="form-check-label" for="female">Female?</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OTHER DETAILS SECTION -->
+    <div class="card mb-4">
+      <div class="card-header">Other Details</div>
+      <div class="card-body">
+        <div class="row">
+          <!-- Checkboxes (first group) -->
+          <div class="col-12 col-md-4">
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="isWhite"
+                [(ngModel)]="other.isWhite"
+                name="isWhite"
+              />
+              <label class="form-check-label" for="isWhite">isWhite</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="isVeteran"
+                [(ngModel)]="other.isVeteran"
+                name="isVeteran"
+              />
+              <label class="form-check-label" for="isVeteran">isVeteran</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="resistanceNIT14"
+                [(ngModel)]="other.resistanceNIT14"
+                name="resistanceNIT14"
+              />
+              <label class="form-check-label" for="resistanceNIT14">resistanceNIT14</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="resistanceSXT14"
+                [(ngModel)]="other.resistanceSXT14"
+                name="resistanceSXT14"
+              />
+              <label class="form-check-label" for="resistanceSXT14">resistanceSXT14</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="resistanceLVX14"
+                [(ngModel)]="other.resistanceLVX14"
+                name="resistanceLVX14"
+              />
+              <label class="form-check-label" for="resistanceLVX14">resistanceLVX14</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="resistanceCIP14"
+                [(ngModel)]="other.resistanceCIP14"
+                name="resistanceCIP14"
+              />
+              <label class="form-check-label" for="resistanceCIP14">resistanceCIP14</label>
+            </div>
+          </div>
+
+          <!-- Checkboxes (second group) -->
+          <div class="col-12 col-md-4">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="DM" [(ngModel)]="other.DM" name="DM" />
+              <label class="form-check-label" for="DM">DM</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="HTN" [(ngModel)]="other.HTN" name="HTN" />
+              <label class="form-check-label" for="HTN">HTN</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="CHF" [(ngModel)]="other.CHF" name="CHF" />
+              <label class="form-check-label" for="CHF">CHF</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="Pulmonary" [(ngModel)]="other.Pulmonary" name="Pulmonary" />
+              <label class="form-check-label" for="Pulmonary">Pulmonary</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="Renal" [(ngModel)]="other.Renal" name="Renal" />
+              <label class="form-check-label" for="Renal">Renal</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="Obesity" [(ngModel)]="other.Obesity" name="Obesity" />
+              <label class="form-check-label" for="Obesity">Obesity</label>
+            </div>
+          </div>
+
+          <!-- Checkboxes (third group) -->
+          <div class="col-12 col-md-4">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="Tumor" [(ngModel)]="other.Tumor" name="Tumor" />
+              <label class="form-check-label" for="Tumor">Tumor</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="Liver" [(ngModel)]="other.Liver" name="Liver" />
+              <label class="form-check-label" for="Liver">Liver</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="Coagulopathy" [(ngModel)]="other.Coagulopathy" name="Coagulopathy" />
+              <label class="form-check-label" for="Coagulopathy">Coagulopathy</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="NeuroOther" [(ngModel)]="other.NeuroOther" name="NeuroOther" />
+              <label class="form-check-label" for="NeuroOther">NeuroOther</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="nursingHome" [(ngModel)]="other.nursingHome" name="nursingHome" />
+              <label class="form-check-label" for="nursingHome">nursingHome</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="ER" [(ngModel)]="other.ER" name="ER" />
+              <label class="form-check-label" for="ER">ER</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="ICU" [(ngModel)]="other.ICU" name="ICU" />
+              <label class="form-check-label" for="ICU">ICU</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="IP" [(ngModel)]="other.IP" name="IP" />
+              <label class="form-check-label" for="IP">IP</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="OP" [(ngModel)]="other.OP" name="OP" />
+              <label class="form-check-label" for="OP">OP</label>
+            </div>
+          </div>
+
+          <!-- Colonization Pressure Fields -->
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Colonization Pressure NIT 90</label>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              [(ngModel)]="other.colonizationPressureNIT90O"
+              name="colonizationPressureNIT90O"
+            />
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Colonization Pressure SXT 90</label>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              [(ngModel)]="other.colonizationPressureSXT90"
+              name="colonizationPressureSXT90"
+            />
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Colonization Pressure LVX 90</label>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              [(ngModel)]="other.colonizationPressureLVX90"
+              name="colonizationPressureLVX90"
+            />
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <label class="form-label">Colonization Pressure CIP 90</label>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control"
+              [(ngModel)]="other.colonizationPressureCIP90"
+              name="colonizationPressureCIP90"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </form>
+</div>
+
+
+<ng-template #resultModal let-modal>
+  <div class="modal-header  text-white">
+    <h4 class="modal-title">
+      Patient Prediction Report
+    </h4>
+    <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Prediction:</strong> {{ resultResponse.prediction }}</p>
+    <p><strong>Treatment:</strong> {{ resultResponse.treatment }}</p>
+    <div *ngIf="resultResponse.doctor_recommendations">
+      <p><strong>Doctor Recommendations:</strong></p>
+      <ul>
+        <li *ngFor="let rec of resultResponse.doctor_recommendations">{{ rec }}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">
+      Close
+    </button>
+    <!--<button type="button" class="btn btn-success" (click)="generateReport(); modal.close()">
+      Generate Report
+    </button>-->
+  </div>
+</ng-template>

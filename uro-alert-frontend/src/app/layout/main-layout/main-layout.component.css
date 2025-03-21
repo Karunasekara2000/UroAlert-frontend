@@ -1,7 +1,12 @@
-.layout-wrapper {
+:host {
   display: flex;
-  height: 100vh; /* or min-height: 100vh */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  width: 100%;
+  height: 100vh; /* fill the screen vertically */
 }
+
+.main-content {
+  overflow-y: auto;
+  scrollbar-gutter: stable; /* reserves scrollbar space even if not needed */
+}
+
+

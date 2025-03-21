@@ -1,6 +1,13 @@
-<div class="layout-wrapper">
-  <app-sidebar></app-sidebar>
-  <div class="main-content">
-    <router-outlet></router-outlet>
+<div class="container-fluid p-0" style="height: 100vh; overflow-x: hidden;">
+  <div class="row no-gutters h-100">
+    <!-- Sidebar: full width on extra-small screens, 2 columns on medium+ -->
+    <div class="col-12 col-md-2 sidebar-container">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Main Content: full width on extra-small screens, 10 columns on medium+ -->
+    <div class="col-12 col-md-10 main-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
