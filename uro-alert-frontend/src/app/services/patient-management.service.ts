@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 export class PatientManagementService {
 
   private modelUrl = 'http://localhost:8000/predict_uti_treatment';
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'http://localhost:8080/patient/';
 
 
   constructor(private http: HttpClient) { }
@@ -18,6 +18,22 @@ export class PatientManagementService {
   }
 
   savePatient(payload: any): Observable<any> {
-    return this.http.post<any>(this.baseUrl + "patient", payload);
+    const token = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post<any>(this.baseUrl , payload,{headers});
+  }
+
+  // 1. Get all patient records
+  getPatientRecords(): Observable<any[]> {
+    const token = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any[]>(this.baseUrl + "search" , { headers });
+  }
+
+  // 2. Get a patient by ID
+  getPatientById(id: number): Observable<any> {
+    const token = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any>(this.baseUrl+ "search/" + id, { headers });
   }
 }

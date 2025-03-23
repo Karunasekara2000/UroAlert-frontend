@@ -154,14 +154,39 @@ export class PatientManagementComponent {
             ...payload.other,
             prediction: response.prediction,
             treatment: response.treatment,
-            doctor_recommendations: Array.isArray(response.doctor_recommendations)
-              ? response.doctor_recommendations.join(', ')
-              : response.doctor_recommendations
+            doctor_recommendations: response.doctor_recommendations
       }
         console.log('Merged Payload:', mergedPayload);
 
+
+        const urinalysisData = toCamelCase(this.urinalysis);
+        const otherDetails = toCamelCase(this.other);
+
+
+        const savePayload = {
+          ...urinalysisData,
+          ...otherDetails,
+          prediction: mergedPayload.prediction,
+          treatment: mergedPayload.treatment,
+
+          color: this.getMappingKey(this.colorMap, this.urinalysis.Color),
+          transparency: this.getMappingKey(this.transparencyMap, this.urinalysis.Transparency),
+          glucose: this.getMappingKey(this.proteinGlucoseMap, this.urinalysis.Glucose),
+          protein: this.getMappingKey(this.proteinGlucoseMap, this.urinalysis.Protein),
+          epithelialCells: this.getMappingKey(this.absenceReference, this.urinalysis['Epithelial Cells']),
+          mucousThreads: this.getMappingKey(this.absenceReference, this.urinalysis['Mucous Threads']),
+          amorphousUrates: this.getMappingKey(this.absenceReference, this.urinalysis['Amorphous Urates']),
+          bacteria: this.getMappingKey(this.absenceReference, this.urinalysis.Bacteria),
+
+          doctorRecommendation: Array.isArray(mergedPayload.doctor_recommendations)
+            ? mergedPayload.doctor_recommendations.join(', ')
+            : mergedPayload.doctor_recommendations
+        };
+
+        console.log('Access Token:', localStorage.getItem('accessToken'));
+
         // Now call the save patient API
-        this.patientService.savePatient(mergedPayload).subscribe(
+        this.patientService.savePatient(savePayload).subscribe(
           (saveResponse) => {
             console.log('Patient Saved Response:', saveResponse);
             // Optionally, set resultResponse to mergedPayload or saveResponse if needed for modal
@@ -181,6 +206,13 @@ export class PatientManagementComponent {
     );
   }
 
+    getMappingKey(map: { [key: string]: number }, value: number | null): string {
+      if (value === null || value === undefined) return '';
+      const keys = Object.keys(map);
+      const found = keys.find(key => map[key] === value);
+      return found ? found : '';
+    }
+
   onCheckSeverity() {
     console.log('Checking severity with data:', {
       urinalysis: this.urinalysis,
@@ -194,6 +226,23 @@ export class PatientManagementComponent {
   }
 
 
+}
+
+
+
+function toCamelCase(obj: any): any {
+  const newObj: any = {};
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      const camelKey = key
+        .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) =>
+          index === 0 ? word.toLowerCase() : word.toUpperCase()
+        )
+        .replace(/\s+/g, '');
+      newObj[camelKey] = obj[key];
+    }
+  }
+  return newObj;
 }
 
 
