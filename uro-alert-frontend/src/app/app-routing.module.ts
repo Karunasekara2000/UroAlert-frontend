@@ -6,6 +6,7 @@ import {SignupComponent} from "./pages/signup/signup.component";
 import {MainLayoutComponent} from "./layout/main-layout/main-layout.component";
 import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {PatientManagementComponent} from "./pages/patient-management/patient-management.component";
+import {PatientRecordComponent} from "./pages/patient-record/patient-record.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'landing',pathMatch:'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'patient-management', component: PatientManagementComponent },
+      { path: 'patient-record', component: PatientRecordComponent },
       //ManagementComponent },
       // Add other authenticated routes here, e.g., patient management, settings, etc.
     ]
