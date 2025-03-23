@@ -36,4 +36,28 @@ export class PatientManagementService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get<any>(this.baseUrl+ "search/" + id, { headers });
   }
+
+
+  downloadPatientReport(patientId: number): void {
+    const token = localStorage.getItem('accessToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    this.http.get(this.baseUrl+"patient-report/" + patientId, {
+      headers: headers,
+      responseType: 'blob'
+    })
+      .subscribe(blob => {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `PatientReport_${patientId}.docx`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }, error => {
+        console.error('Download error:', error);
+        alert('Failed to download the report.');
+      });
+  }
 }
