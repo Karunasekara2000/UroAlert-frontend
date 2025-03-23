@@ -26,9 +26,10 @@ export class LoginComponent {
         console.log('Authentication Success:', response);
 
         // Save tokens to localStorage or sessionStorage if needed
-        localStorage.setItem('accessToken', response.accessToken);
-        localStorage.setItem('refreshToken', response.refreshToken);
+        localStorage.setItem('accessToken', response.access_token);
+        localStorage.setItem('refreshToken', response.refresh_token);
 
+        console.log('Access Token stored:', localStorage.getItem('accessToken'));
         // Navigate to dashboard or home
         alert('Login Successful!');
         this.router.navigate(['/dashboard']); // You can create a dashboard component later

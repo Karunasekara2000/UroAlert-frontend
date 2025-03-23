@@ -13,6 +13,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PatientManagementComponent } from './pages/patient-management/patient-management.component';
+import { PatientRecordComponent } from './pages/patient-record/patient-record.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PatientManagementComponent } from './pages/patient-management/patient-m
     SidebarComponent,
     DashboardComponent,
     PatientManagementComponent,
+    PatientRecordComponent,
   ],
   imports: [
     BrowserModule,
