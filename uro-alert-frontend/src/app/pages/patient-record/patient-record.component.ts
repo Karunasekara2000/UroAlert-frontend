@@ -67,6 +67,4 @@ export interface PatientRecord {
   id: number;
   prediction: string;
   treatment: string;
-  // other fields returned from the backend that you may display in the table (if any)
-  // You might only show a summary in the table and display full details in the modal.
 }

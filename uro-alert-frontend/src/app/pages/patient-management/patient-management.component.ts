@@ -140,8 +140,6 @@ export class PatientManagementComponent {
     };
 
     console.log('Final Payload:', payload);
-    //alert('Patient data submitted. Check console for payload.');
-
 
     // Call the service method
     this.patientService.predictUTITreatment(payload).subscribe(
