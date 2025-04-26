@@ -11,6 +11,7 @@ export class LoginComponent {
   protected email: string = '';
   protected password: string = '';
   protected errorMessage: string = '';
+  protected successMessage: string = '';
 
   constructor(private router: Router,
               private authService: AuthenticationService) {}
@@ -23,7 +24,7 @@ export class LoginComponent {
 
     this.authService.authenticate(this.email, this.password).subscribe({
       next: (response) => {
-        console.log('Authentication Success:', response);
+        //console.log('Authentication Success:', response);
 
         // Save tokens to localStorage or sessionStorage if needed
         localStorage.setItem('accessToken', response.access_token);
@@ -31,8 +32,13 @@ export class LoginComponent {
 
         console.log('Access Token stored:', localStorage.getItem('accessToken'));
         // Navigate to dashboard or home
-        alert('Login Successful!');
-        this.router.navigate(['/dashboard']); // You can create a dashboard component later
+        this.successMessage = 'Login Successful!';
+        // After 3 seconds, clear the message and navigate to dashboard
+        setTimeout(() => {
+          this.successMessage = '';
+          this.router.navigate(['/dashboard']);
+        }, 1000);
+        //this.router.navigate(['/dashboard'],); // You can create a dashboard component later
       },
       error: (error) => {
         if (error.status === 403) {

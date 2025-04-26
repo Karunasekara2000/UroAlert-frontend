@@ -6,33 +6,79 @@
   color: #fff;
 }
 
-/* Optional: override bootstrap nav link colors */
+.sidebar {
+  height: 100%;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.2rem; /* smaller margin below logo */
+}
+
+.logo {
+  width: 180px; /* slightly enlarged */
+  height: auto;
+}
+
+/* Menu section (HR + Links) */
+.menu-section {
+  margin-top: 0;  /* move the entire hr + nav up together */
+}
+
+/* Divider lines */
+.sidebar-divider {
+  border-top: 1px solid #959798;
+  margin: 0.5rem 0;
+}
+
+/* Navigation links */
 .nav-link {
   color: #fff !important;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
 }
 
 .nav-link:hover {
   background-color: #1c1f27;
+  text-decoration: none;
 }
 
-.mt-auto {
-  margin-top: auto !important; /* pushes logout button to bottom if space is available */
-}
-
-.logo {
-  width: 200px; /* Increase this value as needed */
-  height: auto; /* Maintain aspect ratio */
-}
-
-/* Add extra top padding or margin to push the logout button further down */
-.logout-container {
-  padding-top: 200px; /* Adjust this value to increase space */
-}
-
+/* Nav icon and text alignment */
 .nav-icon {
-  width: 15px;       /* Change to desired width */
-  height: 15px;      /* Change to desired height */
-  margin-right: 2px; /* Spacing between icon and text */
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.nav-text {
   vertical-align: middle;
+}
+
+/* Logout Section */
+.logout-container {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-btn {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  width: auto;
+  padding: 10px 20px;
+}
+
+.logout-btn:hover {
+  background-color: #1c1f27;
+  text-decoration: none;
 }

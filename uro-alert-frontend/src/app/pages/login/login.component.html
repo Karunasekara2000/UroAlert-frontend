@@ -2,9 +2,13 @@
   <div class="left-section">
     <img src="assets/images/logo.png" alt="UroAlert Logo" class="login-logo">
   </div>
-  <div class="right-section">
+  <div class="right-section" style="position: relative">
+
+    <div *ngIf="successMessage" class="success-popup">
+      {{ successMessage }}
+    </div>
     <h2>Login</h2>
-    <p>Sign up for free to access to in any of our products</p>
+    <!--<p>Sign up for free to access to in any of our products</p>-->
 
     <form (ngSubmit)="onSubmit()">
       <div class="form-group">

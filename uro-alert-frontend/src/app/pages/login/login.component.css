@@ -79,3 +79,25 @@ input {
   margin-bottom: 10px;
   font-size: 14px;
 }
+
+
+.right-section {
+  position: relative;
+  padding: 40px; /* adjust as needed */
+}
+
+/* Style for the success popup box */
+.success-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #28a745; /* A Bootstrap-like green color */
+  color: #ffffff;           /* White text */
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  /* Optionally add a fade-in or fade-out transition if desired */
+}
+
