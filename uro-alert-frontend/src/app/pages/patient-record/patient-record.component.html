@@ -40,192 +40,77 @@
     </h4>
     <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
+
   <div class="modal-body">
+
     <!-- Section 1: Urinalysis Results -->
-    <h5>Urinalysis Results</h5>
-    <table class="table table-sm">
+    <h5 class="section-title">Urinalysis Results</h5>
+    <table class="table table-bordered table-sm table-hover">
       <tbody>
-      <tr>
-        <th>Age</th>
-        <td>{{ selectedPatient?.age }}</td>
-      </tr>
-      <tr>
-        <th>Color</th>
-        <td>{{ selectedPatient?.color }}</td>
-      </tr>
-      <tr>
-        <th>Transparency</th>
-        <td>{{ selectedPatient?.transparency }}</td>
-      </tr>
-      <tr>
-        <th>Glucose</th>
-        <td>{{ selectedPatient?.glucose }}</td>
-      </tr>
-      <tr>
-        <th>Protein</th>
-        <td>{{ selectedPatient?.protein }}</td>
-      </tr>
-      <tr>
-        <th>pH</th>
-        <td>{{ selectedPatient?.pH }}</td>
-      </tr>
-      <tr>
-        <th>Specific Gravity</th>
-        <td>{{ selectedPatient?.specificGravity }}</td>
-      </tr>
-      <tr>
-        <th>WBC</th>
-        <td>{{ selectedPatient?.wBC }}</td>
-      </tr>
-      <tr>
-        <th>RBC</th>
-        <td>{{ selectedPatient?.rBC }}</td>
-      </tr>
-      <tr>
-        <th>Epithelial Cells</th>
-        <td>{{ selectedPatient?.epithelialCells }}</td>
-      </tr>
-      <tr>
-        <th>Mucous Threads</th>
-        <td>{{ selectedPatient?.mucousThreads }}</td>
-      </tr>
-      <tr>
-        <th>Amorphous Urates</th>
-        <td>{{ selectedPatient?.amorphousUrates }}</td>
-      </tr>
-      <tr>
-        <th>Bacteria</th>
-        <td>{{ selectedPatient?.bacteria }}</td>
-      </tr>
-      <tr>
-        <th>Female</th>
-        <td>{{ selectedPatient?.fEMALE }}</td>
-      </tr>
+      <tr><th>Age</th><td>{{ selectedPatient?.age }}</td></tr>
+      <tr><th>Color</th><td>{{ selectedPatient?.color }}</td></tr>
+      <tr><th>Transparency</th><td>{{ selectedPatient?.transparency }}</td></tr>
+      <tr><th>Glucose</th><td>{{ selectedPatient?.glucose }}</td></tr>
+      <tr><th>Protein</th><td>{{ selectedPatient?.protein }}</td></tr>
+      <tr><th>pH</th><td>{{ selectedPatient?.pH }}</td></tr>
+      <tr><th>Specific Gravity</th><td>{{ selectedPatient?.specificGravity }}</td></tr>
+      <tr><th>WBC</th><td>{{ selectedPatient?.wBC }}</td></tr>
+      <tr><th>RBC</th><td>{{ selectedPatient?.rBC }}</td></tr>
+      <tr><th>Epithelial Cells</th><td>{{ selectedPatient?.epithelialCells }}</td></tr>
+      <tr><th>Mucous Threads</th><td>{{ selectedPatient?.mucousThreads }}</td></tr>
+      <tr><th>Amorphous Urates</th><td>{{ selectedPatient?.amorphousUrates }}</td></tr>
+      <tr><th>Bacteria</th><td>{{ selectedPatient?.bacteria }}</td></tr>
+      <tr><th>Female</th><td>{{ selectedPatient?.fEMALE }}</td></tr>
       </tbody>
     </table>
 
     <!-- Section 2: Other Clinical Data -->
-    <h5>Other Clinical Data</h5>
-    <table class="table table-sm">
+    <h5 class="section-title">Other Clinical Data</h5>
+    <table class="table table-bordered table-sm table-hover">
       <tbody>
-      <tr>
-        <th>Resistance NIT14</th>
-        <td>{{ selectedPatient?.resistanceNIT14 }}</td>
-      </tr>
-      <tr>
-        <th>Resistance SXT14</th>
-        <td>{{ selectedPatient?.resistanceSXT14 }}</td>
-      </tr>
-      <tr>
-        <th>Resistance LVX14</th>
-        <td>{{ selectedPatient?.resistanceLVX14 }}</td>
-      </tr>
-      <tr>
-        <th>Resistance CIP14</th>
-        <td>{{ selectedPatient?.resistanceCIP14 }}</td>
-      </tr>
-      <tr>
-        <th>Colonization Pressure NIT90O</th>
-        <td>{{ selectedPatient?.colonizationPressureNIT90O }}</td>
-      </tr>
-      <tr>
-        <th>Colonization Pressure SXT90</th>
-        <td>{{ selectedPatient?.colonizationPressureSXT90 }}</td>
-      </tr>
-      <tr>
-        <th>Colonization Pressure LVX90</th>
-        <td>{{ selectedPatient?.colonizationPressureLVX90 }}</td>
-      </tr>
-      <tr>
-        <th>Colonization Pressure CIP90</th>
-        <td>{{ selectedPatient?.colonizationPressureCIP90 }}</td>
-      </tr>
+      <tr><th>Resistance NIT14</th><td>{{ selectedPatient?.resistanceNIT14 ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Resistance SXT14</th><td>{{ selectedPatient?.resistanceSXT14 ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Resistance LVX14</th><td>{{ selectedPatient?.resistanceLVX14 ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Resistance CIP14</th><td>{{ selectedPatient?.resistanceCIP14 ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Colonization Pressure NIT90O</th><td>{{ selectedPatient?.colonizationPressureNIT90O }}</td></tr>
+      <tr><th>Colonization Pressure SXT90</th><td>{{ selectedPatient?.colonizationPressureSXT90 }}</td></tr>
+      <tr><th>Colonization Pressure LVX90</th><td>{{ selectedPatient?.colonizationPressureLVX90 }}</td></tr>
+      <tr><th>Colonization Pressure CIP90</th><td>{{ selectedPatient?.colonizationPressureCIP90 }}</td></tr>
       </tbody>
     </table>
 
     <!-- Section 3: Additional Patient Details -->
-    <h5>Additional Patient Details</h5>
-    <table class="table table-sm">
+    <h5 class="section-title">Additional Patient Details</h5>
+    <table class="table table-bordered table-sm table-hover">
       <tbody>
-      <tr>
-        <th>DM</th>
-        <td>{{ selectedPatient?.dM }}</td>
-      </tr>
-      <tr>
-        <th>HTN</th>
-        <td>{{ selectedPatient?.hTN }}</td>
-      </tr>
-      <tr>
-        <th>CHF</th>
-        <td>{{ selectedPatient?.cHF }}</td>
-      </tr>
-      <tr>
-        <th>Pulmonary</th>
-        <td>{{ selectedPatient?.pulmonary }}</td>
-      </tr>
-      <tr>
-        <th>Renal</th>
-        <td>{{ selectedPatient?.renal }}</td>
-      </tr>
-      <tr>
-        <th>Obesity</th>
-        <td>{{ selectedPatient?.obesity }}</td>
-      </tr>
-      <tr>
-        <th>Tumor</th>
-        <td>{{ selectedPatient?.tumor }}</td>
-      </tr>
-      <tr>
-        <th>Liver</th>
-        <td>{{ selectedPatient?.liver }}</td>
-      </tr>
-      <tr>
-        <th>Coagulopathy</th>
-        <td>{{ selectedPatient?.coagulopathy }}</td>
-      </tr>
-      <tr>
-        <th>NeuroOther</th>
-        <td>{{ selectedPatient?.neuroOther }}</td>
-      </tr>
-      <tr>
-        <th>nursingHome</th>
-        <td>{{ selectedPatient?.nursingHome }}</td>
-      </tr>
-      <tr>
-        <th>ER</th>
-        <td>{{ selectedPatient?.eR }}</td>
-      </tr>
-      <tr>
-        <th>ICU</th>
-        <td>{{ selectedPatient?.iCU }}</td>
-      </tr>
-      <tr>
-        <th>IP</th>
-        <td>{{ selectedPatient?.iP }}</td>
-      </tr>
-      <tr>
-        <th>OP</th>
-        <td>{{ selectedPatient?.oP }}</td>
-      </tr>
+      <tr><th>DM</th><td>{{ selectedPatient?.dM ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>HTN</th><td>{{ selectedPatient?.hTN ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>CHF</th><td>{{ selectedPatient?.cHF ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Pulmonary</th><td>{{ selectedPatient?.pulmonary ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Renal</th><td>{{ selectedPatient?.renal ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Obesity</th><td>{{ selectedPatient?.obesity ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Tumor</th><td>{{ selectedPatient?.tumor ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Liver</th><td>{{ selectedPatient?.liver ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Coagulopathy</th><td>{{ selectedPatient?.coagulopathy ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>NeuroOther</th><td>{{ selectedPatient?.neuroOther ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>Nursing Home</th><td>{{ selectedPatient?.nursingHome ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>ER</th><td>{{ selectedPatient?.eR ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>ICU</th><td>{{ selectedPatient?.iCU ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>IP</th><td>{{ selectedPatient?.iP ? 'Presence' : 'Absence' }}</td></tr>
+      <tr><th>OP</th><td>{{ selectedPatient?.oP ? 'Presence' : 'Absence' }}</td></tr>
       </tbody>
     </table>
 
     <!-- Section 4: Prediction & Treatment -->
-    <h5>Prediction & Treatment</h5>
-    <table class="table table-sm">
+    <h5 class="section-title">Prediction & Treatment</h5>
+    <table class="table table-bordered table-sm table-hover">
       <tbody>
-      <tr>
-        <th>Prediction</th>
-        <td>{{ selectedPatient?.prediction }}</td>
-      </tr>
-      <tr>
-        <th>Treatment</th>
-        <td>{{ selectedPatient?.treatment }}</td>
-      </tr>
+      <tr><th>Prediction</th><td>{{ selectedPatient?.prediction }}</td></tr>
+      <tr><th>Treatment</th><td>{{ selectedPatient?.treatment }}</td></tr>
       <tr *ngIf="selectedPatient?.doctorsRecommendation">
         <th>Doctor Recommendations</th>
         <td>
-          <ul>
+          <ul class="mb-0">
             <li *ngFor="let rec of selectedPatient.doctorsRecommendation.split(',')">
               {{ rec.trim() }}
             </li>
@@ -234,7 +119,9 @@
       </tr>
       </tbody>
     </table>
+
   </div>
+
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
     <button type="button" class="btn btn-success" (click)="generateReport(selectedPatient.id); modal.close()">Generate Report</button>
