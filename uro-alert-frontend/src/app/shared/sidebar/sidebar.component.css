@@ -14,11 +14,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.2rem; /* smaller margin below logo */
+  margin-bottom: 0.03rem; /* smaller margin below logo */
 }
 
 .logo {
-  width: 180px; /* slightly enlarged */
+  width: 190px; /* slightly enlarged */
   height: auto;
 }
 

@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {PatientManagementService} from "../../services/patient-management.service"; // adjust the import if needed
 import Chart from 'chart.js/auto';
 
 @Component({
@@ -9,8 +10,32 @@ import Chart from 'chart.js/auto';
 export class DashboardComponent implements AfterViewInit {
   @ViewChild('utiSeverityChart') chartRef!: ElementRef<HTMLCanvasElement>;
   chart: Chart | undefined;
+  protected totalPatients: number = 0;
+
+
+  constructor(private patientService: PatientManagementService) {}
 
   ngAfterViewInit(): void {
+    this.loadChartData();
+  }
+
+  loadChartData(): void {
+    this.patientService.getPatientRecords().subscribe(
+      (patients) => {
+        const uncomplicatedCount = patients.filter((p: any) => p.prediction === 'Uncomplicated UTI').length;
+        const complicatedCount = patients.filter((p: any) => p.prediction === 'Complicated UTI').length;
+        const totalPatients = patients.length;
+
+        this.createChart(uncomplicatedCount, complicatedCount);
+        this.totalPatients = totalPatients;
+      },
+      (error) => {
+        console.error('Error fetching patient data:', error);
+      }
+    );
+  }
+
+  createChart(uncomplicatedCount: number, complicatedCount: number): void {
     const ctx = this.chartRef.nativeElement.getContext('2d');
     if (ctx) {
       this.chart = new Chart(ctx, {
@@ -19,7 +44,7 @@ export class DashboardComponent implements AfterViewInit {
           labels: ['Uncomplicated', 'Complicated'],
           datasets: [{
             label: 'Number of Cases',
-            data: [12, 8], // Dummy data for demonstration
+            data: [uncomplicatedCount, complicatedCount],
             backgroundColor: ['#4e73df', '#e74a3b']
           }]
         },
@@ -42,7 +67,7 @@ export class DashboardComponent implements AfterViewInit {
           },
           plugins: {
             legend: {
-              display: false  // Hide legend if not needed
+              display: false
             }
           }
         }
