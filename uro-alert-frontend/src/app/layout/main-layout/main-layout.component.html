@@ -1,28 +1,13 @@
-<!--<div class="container-fluid p-0" style="height: 100vh; overflow-x: hidden;">-->
-<!--  <div class="row no-gutters h-100">-->
-<!--    &lt;!&ndash; Sidebar: full width on extra-small screens, 2 columns on medium+ &ndash;&gt;-->
-<!--    <div class="col-12 col-md-2 sidebar-container">-->
-<!--      <app-sidebar></app-sidebar>-->
-<!--    </div>-->
+<div class="container-fluid p-0 d-flex" style="height: 100vh; overflow: hidden;">
 
-<!--    &lt;!&ndash; Main Content: full width on extra-small screens, 10 columns on medium+ &ndash;&gt;-->
-<!--    <div class="col-12 col-md-10 main-content">-->
-<!--      <router-outlet></router-outlet>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<div class="container-fluid p-0" style="height: 100vh; overflow: hidden;">
-  <div class="row no-gutters h-100">
-    <!-- Sidebar (Fixed Height & Scroll Independent) -->
-    <div class="col-12 col-md-2 sidebar-fixed">
-      <app-sidebar></app-sidebar>
-    </div>
-
-    <!-- Main Content (Scrolling Content Area) -->
-    <div class="col-12 col-md-10 main-content">
-      <router-outlet></router-outlet>
-    </div>
+  <!-- Sidebar -->
+  <div class="sidebar-fixed">
+    <app-sidebar></app-sidebar>
   </div>
+
+  <!-- Main Content -->
+  <div class="main-content flex-grow-1">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>

@@ -1,20 +1,8 @@
-/*:host {*/
-/*  display: flex;*/
-/*  width: 100%;*/
-/*  height: 100vh; !* fill the screen vertically *!*/
-/*}*/
-
-/*.main-content {*/
-/*  overflow-y: auto;*/
-/*  scrollbar-gutter: stable; !* reserves scrollbar space even if not needed *!*/
-/*}*/
-
-
 :host {
   display: flex;
   width: 100%;
   height: 100vh;
-  overflow: hidden; /* prevent double scrollbars */
+  overflow: hidden;
 }
 
 .sidebar-fixed {
@@ -24,13 +12,15 @@
   width: 250px;
   position: sticky;
   top: 0;
-  overflow-y: auto; /* Optional: if sidebar content ever overflows */
+  overflow-y: auto;
   padding: 0.1rem;
+  flex-shrink: 0; /* prevents sidebar from shrinking */
 }
 
 .main-content {
   height: 100vh;
   overflow-y: auto;
   padding: 2rem;
-  scrollbar-gutter: stable; /* optional: prevent content jump */
+  scrollbar-gutter: stable;
+  flex-grow: 1; /* main-content takes remaining width */
 }
