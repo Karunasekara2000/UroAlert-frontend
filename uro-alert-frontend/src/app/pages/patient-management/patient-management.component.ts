@@ -220,7 +220,16 @@ export class PatientManagementComponent {
   }
 
   openResultModal() {
-    this.modalService.open(this.resultModal, { size: 'lg', centered: true });
+    const modalRef = this.modalService.open(this.resultModal, { size: 'lg', centered: true });
+
+    modalRef.result.then(
+      () => {
+        window.location.reload();
+      },
+      () => {
+        window.location.reload();
+      }
+    );
   }
 
 
